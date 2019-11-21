@@ -831,22 +831,7 @@ namespace MetaMorpheusGUI
 
         private void AddSearchTaskButton_Click(object sender, RoutedEventArgs e)
         {
-            //check if the default toml has been overwritten
-            SearchTask task = null;
-            string defaultFilePath = Path.Combine(GlobalVariables.DataDir, "DefaultParameters", @"SearchTaskDefault.toml");
-            if (File.Exists(defaultFilePath))
-            {
-                try
-                {
-                    task = Toml.ReadFile<SearchTask>(defaultFilePath, MetaMorpheusTask.tomlConfig);
-                }
-                catch (Exception)
-                {
-                    GuiWarnHandler(null, new StringEventArgs("Cannot read toml: " + defaultFilePath, null));
-                }
-            }
-
-            var dialog = new SearchTaskWindow(task);
+            var dialog = new SearchTaskWindow();
             if (dialog.ShowDialog() == true)
             {
                 AddTaskToCollection(dialog.TheTask);
@@ -856,22 +841,7 @@ namespace MetaMorpheusGUI
 
         private void AddCalibrateTaskButton_Click(object sender, RoutedEventArgs e)
         {
-            //check if the default toml has been overwritten
-            CalibrationTask task = null;
-            string defaultFilePath = Path.Combine(GlobalVariables.DataDir, "DefaultParameters", @"CalibrationTaskDefault.toml");
-            if (File.Exists(defaultFilePath))
-            {
-                try
-                {
-                    task = Toml.ReadFile<CalibrationTask>(defaultFilePath, MetaMorpheusTask.tomlConfig);
-                }
-                catch (Exception)
-                {
-                    GuiWarnHandler(null, new StringEventArgs("Cannot read toml: " + defaultFilePath, null));
-                }
-            }
-
-            var dialog = new CalibrateTaskWindow(task);
+            var dialog = new CalibrateTaskWindow();
             if (dialog.ShowDialog() == true)
             {
                 AddTaskToCollection(dialog.TheTask);
@@ -881,22 +851,7 @@ namespace MetaMorpheusGUI
 
         private void AddGPTMDTaskButton_Click(object sender, RoutedEventArgs e)
         {
-            //check if the default toml has been overwritten
-            GptmdTask task = null;
-            string defaultFilePath = Path.Combine(GlobalVariables.DataDir, "DefaultParameters", @"GptmdTaskDefault.toml");
-            if (File.Exists(defaultFilePath))
-            {
-                try
-                {
-                    task = Toml.ReadFile<GptmdTask>(defaultFilePath, MetaMorpheusTask.tomlConfig);
-                }
-                catch (Exception)
-                {
-                    GuiWarnHandler(null, new StringEventArgs("Cannot read toml: " + defaultFilePath, null));
-                }
-            }
-
-            var dialog = new GptmdTaskWindow(task);
+            var dialog = new GptmdTaskWindow();
             if (dialog.ShowDialog() == true)
             {
                 AddTaskToCollection(dialog.TheTask);
@@ -905,23 +860,8 @@ namespace MetaMorpheusGUI
         }
 
         private void BtnAddCrosslinkSearch_Click(object sender, RoutedEventArgs e)
-        {            
-            //check if the default toml has been overwritten
-            XLSearchTask task = null;
-            string defaultFilePath = Path.Combine(GlobalVariables.DataDir, "DefaultParameters", @"XLSearchTaskDefault.toml");
-            if (File.Exists(defaultFilePath))
-            {
-                try
-                {
-                    task = Toml.ReadFile<XLSearchTask>(defaultFilePath, MetaMorpheusTask.tomlConfig);
-                }
-                catch (Exception)
-                {
-                    GuiWarnHandler(null, new StringEventArgs("Cannot read toml: " + defaultFilePath, null));
-                }
-            }
-
-            var dialog = new XLSearchTaskWindow(task);
+        {
+            var dialog = new XLSearchTaskWindow();
             if (dialog.ShowDialog() == true)
             {
                 AddTaskToCollection(dialog.TheTask);

@@ -15,7 +15,7 @@ namespace TaskLayer
             CrosslinkAtCleavageSite = false;
             XlQuench_H2O = true;
             XlQuench_NH2 = false;
-            XlQuench_Tris = false;
+            XlQuench_Tris = true;
             WriteOutputForPercolator = false;
             WritePepXml = true;
         }
