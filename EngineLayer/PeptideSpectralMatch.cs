@@ -104,7 +104,7 @@ namespace EngineLayer
 
         public void AddOrReplace(PeptideWithSetModifications pwsm, double newScore, int notch, bool reportAllAmbiguity, List<MatchedFragmentIon> matchedFragmentIons, double newXcorr)
         {
-            if (newScore - Score > ToleranceForScoreDifferentiation) //if new score beat the old score, overwrite it
+            if ((int)newScore - (int)Score > ToleranceForScoreDifferentiation) //if new score beat the old score, overwrite it
             {
                 _BestMatchingPeptides.Clear();
                 _BestMatchingPeptides.Add((notch, pwsm));
@@ -120,7 +120,7 @@ namespace EngineLayer
                 PeptidesToMatchingFragments.Clear();
                 PeptidesToMatchingFragments.Add(pwsm, matchedFragmentIons);
             }
-            else if (newScore - Score > -ToleranceForScoreDifferentiation && reportAllAmbiguity) //else if the same score and ambiguity is allowed
+            else if ((int)newScore - (int)Score > -ToleranceForScoreDifferentiation && reportAllAmbiguity) //else if the same score and ambiguity is allowed
             {
                 _BestMatchingPeptides.Add((notch, pwsm));
 
